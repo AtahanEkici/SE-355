@@ -2,11 +2,10 @@
 
 public class ColorManager : MonoBehaviour
 {
-    public float speed = 10f;
+    public StageManager stage_manager;
 
     private Material player_material;
     private Material trail_material;
-
     private float timeLeft = 2f;
     private Color targetColor;
 
@@ -20,21 +19,30 @@ public class ColorManager : MonoBehaviour
     {
         ColorController();
     }
-
     private Color GetColor()
     {
         return player_material.GetColor("_Color");
     }
-
-    private void SetColor(Color wanted_color)
+    private void SetColor(SpriteRenderer render,Color wanted_color)
     {
-        player_material.SetColor("_Color", wanted_color);
+        render.material.SetColor("_Color", wanted_color);
     }
     private Color Color_Inverter(Color player_color)
     {
         return new Color((1 - player_color.r), (1 - player_color.g), (1 - player_color.b), 1);
     }
+    private void ColorProcess(Color color)
+    {
+        for (int i = 0; i < stage_manager.instances.Count; i++)
+        {
+            SpriteRenderer[] components = stage_manager.instances[i].GetComponentsInChildren<SpriteRenderer>();
 
+            for (int j = 0; j < components.Length; j++)
+            {
+                SetColor(components[j], color);
+            }
+        }
+    }
     private void ColorController()
     {
         if (timeLeft <= Time.deltaTime)
@@ -48,6 +56,7 @@ public class ColorManager : MonoBehaviour
         {
             player_material.color = Color.Lerp(player_material.color, targetColor, Time.deltaTime / timeLeft);
             Color temp = Color.Lerp(trail_material.color, Color_Inverter(targetColor), Time.deltaTime / timeLeft);
+            ColorProcess(temp);
             trail_material.SetColor("_Color", temp);
             timeLeft -= Time.deltaTime;
         }
