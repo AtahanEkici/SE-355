@@ -25,7 +25,6 @@ public class CameraController : MonoBehaviour
         else
         {
             _instance = this;
-
         }
     }
     private void FixedUpdate()

@@ -10,14 +10,12 @@ public class StageManager : MonoBehaviour
     public int Score = 0;
     public int bestScore;
 
-    int playerDistanceIndex = -1;
-    int stageIndex = 0;
-    int distanceToNext = 10;
-    int randStage;
-
+    private int playerDistanceIndex = -1;
+    private int stageIndex = 0;
+    private int distanceToNext = 10;
+    private int randStage;
     private GameObject newStage;
     public List<GameObject> instances = new List<GameObject>();
-
     private static StageManager _instance;
 
     private static StageManager Instance
@@ -36,7 +34,6 @@ public class StageManager : MonoBehaviour
             _instance = this;
         }
     }
-
     private void Update()
     {
         int playerDistance = (int)(playerObj.transform.position.y / (distanceToNext / 2));
@@ -44,7 +41,6 @@ public class StageManager : MonoBehaviour
         if(playerDistanceIndex != playerDistance) 
         {
             InstantiateStages();
-            //Debug.Log("Geçti");
             playerDistanceIndex = playerDistance;
         }
     }
@@ -55,6 +51,5 @@ public class StageManager : MonoBehaviour
             newStage.transform.SetParent(transform);
             instances.Add(newStage);
             stageIndex++;
-            //Destroy(stagePrefabs[0]);
     }
 }

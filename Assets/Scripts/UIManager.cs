@@ -1,13 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    public int Score;
-
+    public int Score = 0;
     public Text scoreText;
     public Text bestScoreText;
     public Button restartButton;
@@ -20,13 +17,17 @@ public class UIManager : MonoBehaviour
             PlayerPrefs.SetInt("BestScore", 0);
         }
     }
-    void Update()
+    private void Start()
     {
-        scoreText.text = "Score : " + PlayerPrefs.GetInt("Score");
+        scoreText.text = "Score : " + Score;
+    }
+    private void Update()
+    {
+        scoreText.text = "Score : " + Score.ToString();
         bestScoreText.text = "Best Score : " + PlayerPrefs.GetInt("BestScore");
         CalculateBestScore();
     }
-    void CalculateBestScore()
+    private void CalculateBestScore()
     {
         if (PlayerPrefs.GetInt("BestScore") < Score)
         {
