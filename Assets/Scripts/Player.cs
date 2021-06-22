@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
+// Atahan Ekici //
+// Onat Kocabaşoğlu //
 
 public class Player : MonoBehaviour
 {
@@ -52,7 +54,7 @@ public class Player : MonoBehaviour
     }
     void GetInput() 
     {
-        if (Input.GetMouseButton(0) && Time.timeScale > 0) 
+        if ((Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space)) && Time.timeScale > 0) 
         {
             if(randMove <= 5) 
             {

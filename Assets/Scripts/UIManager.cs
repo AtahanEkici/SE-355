@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+// Atahan Ekici //
+// Onat Kocabaşoğlu //
 
 public class UIManager : MonoBehaviour
 {

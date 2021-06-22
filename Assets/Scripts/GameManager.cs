@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+// Atahan Ekici //
+// Onat Kocabaþoðlu //
 
 public class GameManager : MonoBehaviour
 {

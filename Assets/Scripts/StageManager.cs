@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using Vector3 = UnityEngine.Vector3;
 using Quaternion = UnityEngine.Quaternion;
+// Atahan Ekici //
+// Onat Kocabaşoğlu //
 
 public class StageManager : MonoBehaviour
 {

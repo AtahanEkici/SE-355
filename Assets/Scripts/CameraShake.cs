@@ -1,4 +1,6 @@
 using UnityEngine;
+// Atahan Ekici //
+// Onat Kocabaþoðlu //
 public class CameraShake : MonoBehaviour
 {
     [SerializeField]

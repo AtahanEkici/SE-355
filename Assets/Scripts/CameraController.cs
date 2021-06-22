@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+// Atahan Ekici //
+// Onat Kocabaşoğlu //
 
 public class CameraController : MonoBehaviour
 {

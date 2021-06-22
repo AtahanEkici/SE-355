@@ -1,8 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+// Atahan Ekici //
+// Onat Kocabaşoğlu //
 
 public class ColorManager : MonoBehaviour
 {
     public StageManager stage_manager;
+    public bool Color_Controll = true;
+    public Toggle toggleButton;
 
     private Material player_material;
     private Material trail_material;
@@ -15,9 +20,32 @@ public class ColorManager : MonoBehaviour
         trail_material = GetComponent<TrailRenderer>().material;
         targetColor = Random.ColorHSV();
     }
+    private void Start()
+    {
+        toggleButton.onValueChanged.AddListener(delegate  // attach listener to the toggle button //
+        {
+            ToggleValueChanged(toggleButton);
+        });
+    }
     private void Update()
     {
-        ColorController();
+        if(Color_Controll == true)
+        {
+            ColorController();
+        }
+    }
+    public void ToggleValueChanged(Toggle change)
+    {
+        if (change.isOn == true)
+        {
+            Color_Controll = true;
+            Debug.Log("Color is not changing at this point");
+        }
+        else
+        {
+            Color_Controll = false;
+            Debug.Log("Color is changing at this point");
+        }
     }
     private Color GetColor()
     {
