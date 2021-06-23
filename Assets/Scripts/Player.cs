@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D rb;
     private int xSpeed = 25;
-    private int ySpeed = -2;
+    private int ySpeed = -3;
     private UIManager uiManager;
     private Material player_renderer_material;
     private static Player _instance;
@@ -33,10 +33,10 @@ public class Player : MonoBehaviour
         uiManager = (UIManager)FindObjectOfType(typeof(UIManager));
         rb = GetComponent<Rigidbody2D>();
         player_renderer_material = GetComponent<Renderer>().material;
-        }
+    }
     private void FixedUpdate()
     {
-        MovePlayer(); 
+        MovePlayer();
     }
     private void Update()
     {
@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
     }
     private Color GetPlayerColor()
     {
-            return player_renderer_material.GetColor("_Color");
+        return player_renderer_material.GetColor("_Color");
     }
     private void ChangeColor(Color color, Renderer renderer)
     {
@@ -53,29 +53,27 @@ public class Player : MonoBehaviour
             renderer.sharedMaterial.SetColor("_Color", color);
         }
     }
-    public void MovePlayer() 
+    public void MovePlayer()
     {
-            rb.AddForce(new Vector2(xSpeed, ySpeed));
+        rb.AddForce(new Vector2(xSpeed, ySpeed));
 
     }
-    void GetInput() 
+    void GetInput()
     {
-        if ((Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space)) && Time.timeScale > 0) 
+        if ((Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space)) && Time.timeScale > 0)
         {
-                rb.AddForce(new Vector2(-xSpeed * 3, 0));
-            
-                //rb.AddForce(new Vector2(xSpeed * 3, 0));
-            
+            rb.AddForce(new Vector2(-xSpeed * 3, 0));
+
         }
     }
     void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.CompareTag("Wall")) 
+        if (other.gameObject.CompareTag("Wall"))
         {
             endGame();
         }
     }
-    public void endGame() 
+    public void endGame()
     {
         this.gameObject.SetActive(false);
         uiManager.GameOver();

@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 // Atahan Ekici //
 // Onat Kocabaþoðlu //
@@ -83,11 +82,13 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
         Debug.Log("Scene terminated: " + CurrentSceneName + "");
     }
-
+    private void FixedUpdate()
+    {
+        LimitVelocity(velocity_limit);
+    }
     private void Update()
     {
         OpenMenu(KeyCode.P);
-        LimitVelocity();
     }
 
     public void OnLevelFinish()
@@ -101,11 +102,14 @@ public class GameManager : MonoBehaviour
             Debug.Log("" + SceneManager.GetActiveScene().name + "");
         }
     }
-    private void LimitVelocity()
+    private void LimitVelocity(float max)
     {
-        if (rb.velocity.magnitude > velocity_limit)
+        if (rb.velocity.magnitude > max) 
         {
-            rb.velocity = Vector3.ClampMagnitude(rb.velocity, velocity_limit);
+            float first = rb.velocity.y;
+            rb.velocity = rb.velocity.normalized * max;
+            float second = rb.velocity.y;
+            Debug.Log("Limiting velocity : "+first+" ==> "+second+"");
         }
     }
     public void RestartCurrentScene() // restarts the active scene //
@@ -116,7 +120,7 @@ public class GameManager : MonoBehaviour
     }
     public void QuitGame()
     {
-        Application.Quit(); // Does not work in inspector works only on game builds //
+        Application.Quit(); // Does not work in inspector works only in-game //
     }
     public IEnumerator Load_Level(string SceneName)
     {

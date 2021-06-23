@@ -11,8 +11,13 @@ public class Remember : MonoBehaviour
     public GameObject Score_Canvas;
     public GameObject Menu_Canvas;
 
+    public InputField input;
+    public string input_string;
+    public Text confirmation;
+
     public static readonly string Color_Lerp = "Color_Lerp_Status";
     public static readonly string V_Sync = "V_Synch_Status";
+    public static readonly string Velocity = "Max_Velocity";
 
     private void Awake()
     {
@@ -47,6 +52,16 @@ public class Remember : MonoBehaviour
                 Color_Lerp_Toggle.isOn = false;
             }
         }
+
+        if(PlayerPrefs.HasKey(Velocity) == false)
+        {
+            PlayerPrefs.SetFloat(Velocity,5f);
+        }
+        else
+        {
+            GameObject gm = GameObject.Find("GameManager");
+            gm.GetComponent<GameManager>().velocity_limit = PlayerPrefs.GetFloat(Velocity);
+        }
     }
     private void Start()
     {
@@ -62,6 +77,11 @@ public class Remember : MonoBehaviour
         {
             Color_Lerp_Template();
         });
+    }
+
+    public void Clear_Text()
+    {
+        confirmation.text = "";
     }
 
     public void OpenMenu() // For Overlay Button since it does not accept parametered functions//
@@ -81,6 +101,32 @@ public class Remember : MonoBehaviour
             Menu_Canvas.SetActive(false); // hide menu //
         }
     }
+
+    public void Get_Velocity_Limit()
+    {
+        input_string = input.text;
+        float velocity = float.Parse(input_string);
+
+        Debug.Log(velocity);
+
+        if (velocity >= 25f)
+        {
+            velocity = 25f;
+        }
+        else if (velocity <= 0f)
+        {
+            velocity = 5f;
+        }
+
+        PlayerPrefs.SetFloat(Velocity, velocity);
+        GameObject gm = GameObject.Find("GameManager");
+        gm.GetComponent<GameManager>().velocity_limit = velocity;
+        string temp = "Max Velocity set to " + velocity + "";
+        Debug.Log(temp);
+        confirmation.text = temp;
+        Invoke(nameof(Clear_Text), 3f);
+        input.text = "";
+    }   
     private void V_Sync_Template()
     {
 
