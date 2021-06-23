@@ -14,7 +14,7 @@ public class StageManager : MonoBehaviour
 
     private int playerDistanceIndex = -1;
     private int stageIndex = 0;
-    private int distanceToNext = 10;
+    private int distanceToNext = 20;
     private int randStage;
     private GameObject newStage;
     public List<GameObject> instances = new List<GameObject>();

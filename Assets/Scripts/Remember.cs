@@ -8,6 +8,9 @@ public class Remember : MonoBehaviour
     public Toggle V_Sync_Toggle;
     public Toggle Color_Lerp_Toggle;
 
+    public GameObject Score_Canvas;
+    public GameObject Menu_Canvas;
+
     public static readonly string Color_Lerp = "Color_Lerp_Status";
     public static readonly string V_Sync = "V_Synch_Status";
 
@@ -59,6 +62,24 @@ public class Remember : MonoBehaviour
         {
             Color_Lerp_Template();
         });
+    }
+
+    public void OpenMenu() // For Overlay Button since it does not accept parametered functions//
+    {
+        Debug.Log("Open Menu is called");
+
+        if (Time.timeScale == 1)
+        {
+            Time.timeScale = 0; // Pause the game loop //
+            Score_Canvas.SetActive(false); // hide overlay //
+            Menu_Canvas.SetActive(true); // display menu //
+        }
+        else
+        {
+            Time.timeScale = 1; // Resume the game loop //
+            Score_Canvas.SetActive(true); // display overlay //
+            Menu_Canvas.SetActive(false); // hide menu //
+        }
     }
     private void V_Sync_Template()
     {

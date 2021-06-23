@@ -7,17 +7,19 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager _instance; // instance of this GameManager object for singleton pattern //
-    private AsyncOperation AsyncLoadLevel; // Asyncronous object for scene loading //
-
+    public bool DontDestroyStatus = true; // Don't destroy on default //
     public string CurrentSceneName;  // Current Scene's name //
     public GameObject Player; // Player Object //
-    public bool DontDestroyStatus = true; // Don't destroy on default //
+    public float velocity_limit;
 
-    public Toggle toggleButton; // V-Synch toggle button //
+    private static GameManager _instance; // instance of this GameManager object for singleton pattern //
+    private AsyncOperation AsyncLoadLevel; // Asyncronous object for scene loading //
+    private Rigidbody2D rb;
 
-    public Canvas Score_Canvas;
-    public Canvas Menu_Canvas;
+    public UIManager UI;
+    public GameObject Score_Canvas; // Score Overlay //
+    public GameObject Menu_Canvas; // Pause Menu //
+    public GameObject Start_Menu; // Start Menu //
 
     public static GameManager Instance
     {
@@ -39,24 +41,25 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-    private void Start()
-    {
-        CurrentSceneName = SceneManager.GetActiveScene().name;
 
-        toggleButton.onValueChanged.AddListener(delegate  // attach listener to the toggle button //
-        {
-            ToggleValueChanged(toggleButton);
-        });
-    }
     private void OnEnable() // This function is called upon gameobject activation //
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+        Player = GameObject.Find("Player");
+        rb = Player.GetComponent<Rigidbody2D>();
+        Score_Canvas = GameObject.Find("Overlay");
+        UI = Score_Canvas.GetComponent<UIManager>();
+        Menu_Canvas = UI.Pause_Menu;
+        Start_Menu = UI.Start_Menu;
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode) // This function is called after the scene changed //
     {
         if (CurrentSceneName == null || CurrentSceneName == "")
         {
             Debug.Log("Game Started on Scene: " + scene.name);
+            CurrentSceneName = SceneManager.GetActiveScene().name;
+            Start_Menu.SetActive(true);
+            Time.timeScale = 0;
         }
 
         else if (SceneManager.GetActiveScene().name != CurrentSceneName)
@@ -79,20 +82,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         OpenMenu(KeyCode.P);
-    }
-
-    public void ToggleValueChanged(Toggle change) 
-    {
-        if(change.isOn == true)
-        {
-            QualitySettings.vSyncCount = 1;
-            Debug.Log("V-Sync is now enabled  " + QualitySettings.vSyncCount + "");
-        }
-        else
-        {
-            QualitySettings.vSyncCount = 0;
-            Debug.Log("V-Sync is now disabled  " + QualitySettings.vSyncCount + "");
-        }      
+        LimitVelocity();
     }
 
     public void OnLevelFinish()
@@ -104,6 +94,13 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(key))
         {
             Debug.Log("" + SceneManager.GetActiveScene().name + "");
+        }
+    }
+    private void LimitVelocity()
+    {
+        if (rb.velocity.magnitude > velocity_limit)
+        {
+            rb.velocity = Vector3.ClampMagnitude(rb.velocity, velocity_limit);
         }
     }
     public void RestartCurrentScene() // restarts the active scene //
@@ -127,42 +124,30 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
     }
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void Restart_Game()
+    {
+        StartCoroutine(Load_Level(CurrentSceneName));
+    }
     public void OpenMenu(KeyCode k)
     {
-        //Debug.Log("Open Menu is called");
-
         if (Input.GetKeyDown(k))
         {
-            if(Time.timeScale == 1)
+            if (Time.timeScale == 1)
             {
                 Time.timeScale = 0; // Pause the game loop //
-                Score_Canvas.gameObject.SetActive(false); // hide overlay //
-                Menu_Canvas.gameObject.SetActive(true); // display menu //
+                Score_Canvas.SetActive(false); // hide overlay //
+                Menu_Canvas.SetActive(true); // display menu //
             }
             else
             {
                 Time.timeScale = 1; // Resume the game loop //
-                Score_Canvas.gameObject.SetActive(true); // display overlay //
-                Menu_Canvas.gameObject.SetActive(false); // hide menu //
+                Score_Canvas.SetActive(true); // display overlay //
+                Menu_Canvas.SetActive(false); // hide menu //
             }
-        }
-    }
-
-    public void OpenMenu() // For Overlay Button since it does not accept parametered functions//
-    {
-        Debug.Log("Open Menu is called");
-
-        if (Time.timeScale == 1)
-        {
-            Time.timeScale = 0; // Pause the game loop //
-            Score_Canvas.gameObject.SetActive(false); // hide overlay //
-            Menu_Canvas.gameObject.SetActive(true); // display menu //
-        }
-        else
-        {
-            Time.timeScale = 1; // Resume the game loop //
-            Score_Canvas.gameObject.SetActive(true); // display overlay //
-            Menu_Canvas.gameObject.SetActive(false); // hide menu //
         }
     }
     public void Force_Frame_Rate(int given_frame_rate) // This function is for debugging purposes only  also it effects inspector too so use with caution//

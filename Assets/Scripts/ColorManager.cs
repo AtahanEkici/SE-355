@@ -28,8 +28,8 @@ public class ColorManager : MonoBehaviour
             ToggleValueChanged(toggleButton);
         });
 
-        player_material.color = Random.ColorHSV();
-        ColorProcess(Random.ColorHSV());
+        player_material.color = Color.black;
+        trail_material.color = Color.white;
     }
     private void Update()
     {
@@ -48,6 +48,9 @@ public class ColorManager : MonoBehaviour
         else
         {
             Color_Controll = false;
+            ColorProcess(Color.white);
+            player_material.color = Color.black;
+            trail_material.color = Color.white;
             Debug.Log("Color is changing at this point");
         }
     }
@@ -87,6 +90,14 @@ public class ColorManager : MonoBehaviour
             }
         }
     }
+    private Color Revalue_Color(Color color)
+    {
+        Color temprorary = color;
+        float r = temprorary.r;
+        float g = temprorary.g;
+        float b = temprorary.b;
+        return new Color((r - 0.5f), (g - 0.5f), (b - 0.5f), 1);
+    }
     private void ColorController()
     {
         if (timeLeft <= Time.deltaTime)
@@ -101,7 +112,7 @@ public class ColorManager : MonoBehaviour
             player_material.color = Color.Lerp(player_material.color, targetColor, Time.deltaTime / timeLeft);
             Color temp = Color.Lerp(trail_material.color, Color_Inverter(targetColor), Time.deltaTime / timeLeft);
             ColorProcess(temp);
-            trail_material.SetColor("_Color", temp);
+            trail_material.color = temp;
             timeLeft -= Time.deltaTime;
         }
     }
