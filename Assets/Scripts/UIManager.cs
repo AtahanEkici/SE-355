@@ -11,9 +11,14 @@ public class UIManager : MonoBehaviour
     public Text bestScoreText;
     public Button restartButton;
     public GameObject gameOver;
+    public GameObject Start_Menu;
+    public Button Pause_Menu_Button;
+    public Canvas this_canvas;
 
     private void Awake()
     {
+        Time.timeScale = 0;  
+
         if (PlayerPrefs.HasKey("BestScore") == false)
         {
             PlayerPrefs.SetInt("BestScore", 0);
@@ -22,6 +27,8 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         scoreText.text = "Score : " + Score;
+        this_canvas.enabled = false;
+        Pause_Menu_Button.enabled = false;
     }
     private void Update()
     {
@@ -49,5 +56,13 @@ public class UIManager : MonoBehaviour
         Score++;
         scoreText.text = "Score : " + Score;
         PlayerPrefs.SetInt("Score", Score);
+    }
+
+    public void StartGame()
+    {
+        Start_Menu.SetActive(false);
+        Time.timeScale = 1;
+        this_canvas.enabled = true;
+        Pause_Menu_Button.enabled = true;
     }
 }

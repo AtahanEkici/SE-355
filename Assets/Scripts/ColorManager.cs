@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ColorManager : MonoBehaviour
 {
     public StageManager stage_manager;
-    public bool Color_Controll = true;
+    public bool Color_Controll;
     public Toggle toggleButton;
 
     private Material player_material;
@@ -19,7 +19,7 @@ public class ColorManager : MonoBehaviour
         player_material = GetComponent<Renderer>().material;
         trail_material = GetComponent<TrailRenderer>().material;
         targetColor = Random.ColorHSV();
-        Color_Controll = toggleButton.isOn;
+        Color_Setting_Checker();
     }
     private void Start()
     {
@@ -50,6 +50,18 @@ public class ColorManager : MonoBehaviour
             Color_Controll = false;
             Debug.Log("Color is changing at this point");
         }
+    }
+    private void Color_Setting_Checker()
+    {
+        if (PlayerPrefs.GetInt(Remember.Color_Lerp) == 1)
+        {
+            Color_Controll = true;
+        }
+        else
+        {
+            Color_Controll = false;
+        }
+
     }
     private Color GetColor()
     {

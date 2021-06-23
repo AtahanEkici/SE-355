@@ -8,8 +8,8 @@ public class Remember : MonoBehaviour
     public Toggle V_Sync_Toggle;
     public Toggle Color_Lerp_Toggle;
 
-    private static readonly string Color_Lerp = "Color_Lerp_Status";
-    private static readonly string V_Sync = "V_Synch_Status";
+    public static readonly string Color_Lerp = "Color_Lerp_Status";
+    public static readonly string V_Sync = "V_Synch_Status";
 
     private void Awake()
     {
