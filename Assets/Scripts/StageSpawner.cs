@@ -4,7 +4,7 @@
 public class StageSpawner : MonoBehaviour
 {
     private StageManager stageManager;
-    void Start()
+    private void Awake()
     {
         stageManager = (StageManager)FindObjectOfType(typeof(StageManager));
     }

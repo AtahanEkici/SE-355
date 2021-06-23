@@ -19,6 +19,7 @@ public class ColorManager : MonoBehaviour
         player_material = GetComponent<Renderer>().material;
         trail_material = GetComponent<TrailRenderer>().material;
         targetColor = Random.ColorHSV();
+        Color_Controll = toggleButton.isOn;
     }
     private void Start()
     {
@@ -26,6 +27,9 @@ public class ColorManager : MonoBehaviour
         {
             ToggleValueChanged(toggleButton);
         });
+
+        player_material.color = Random.ColorHSV();
+        ColorProcess(Random.ColorHSV());
     }
     private void Update()
     {

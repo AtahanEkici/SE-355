@@ -127,9 +127,11 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
     }
-    private void OpenMenu(KeyCode k)
+    public void OpenMenu(KeyCode k)
     {
-        if(Input.GetKeyDown(k))
+        //Debug.Log("Open Menu is called");
+
+        if (Input.GetKeyDown(k))
         {
             if(Time.timeScale == 1)
             {
@@ -143,10 +145,26 @@ public class GameManager : MonoBehaviour
                 Score_Canvas.gameObject.SetActive(true); // display overlay //
                 Menu_Canvas.gameObject.SetActive(false); // hide menu //
             }
-           
         }
     }
 
+    public void OpenMenu() // For Overlay Button since it does not accept parametered functions//
+    {
+        Debug.Log("Open Menu is called");
+
+        if (Time.timeScale == 1)
+        {
+            Time.timeScale = 0; // Pause the game loop //
+            Score_Canvas.gameObject.SetActive(false); // hide overlay //
+            Menu_Canvas.gameObject.SetActive(true); // display menu //
+        }
+        else
+        {
+            Time.timeScale = 1; // Resume the game loop //
+            Score_Canvas.gameObject.SetActive(true); // display overlay //
+            Menu_Canvas.gameObject.SetActive(false); // hide menu //
+        }
+    }
     public void Force_Frame_Rate(int given_frame_rate) // This function is for debugging purposes only  also it effects inspector too so use with caution//
     {
         Application.targetFrameRate = given_frame_rate;

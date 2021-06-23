@@ -12,7 +12,7 @@ public class UIManager : MonoBehaviour
     public Button restartButton;
     public GameObject gameOver;
 
-    void Awake()
+    private void Awake()
     {
         if (PlayerPrefs.HasKey("BestScore") == false)
         {
