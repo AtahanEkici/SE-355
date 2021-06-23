@@ -40,17 +40,12 @@ public class GameManager : MonoBehaviour
                 DontDestroyOnLoad(this);
             }
         }
+        Init();
     }
 
     private void OnEnable() // This function is called upon gameobject activation //
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
-        Player = GameObject.Find("Player");
-        rb = Player.GetComponent<Rigidbody2D>();
-        Score_Canvas = GameObject.Find("Overlay");
-        UI = Score_Canvas.GetComponent<UIManager>();
-        Menu_Canvas = UI.Pause_Menu;
-        Start_Menu = UI.Start_Menu;
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode) // This function is called after the scene changed //
     {
@@ -71,7 +66,17 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.Log("Scene Restart: " + scene.name);
+            Init();
         }
+    }
+    private void Init()
+    {
+        Player = GameObject.FindGameObjectWithTag("Player");
+        rb = Player.GetComponent<Rigidbody2D>();
+        Score_Canvas = GameObject.Find("Overlay");
+        UI = Score_Canvas.GetComponent<UIManager>();
+        Menu_Canvas = UI.Pause_Menu;
+        Start_Menu = UI.Start_Menu;
     }
     private void OnDisable()
     {

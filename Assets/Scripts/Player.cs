@@ -6,22 +6,34 @@ using Vector2 = UnityEngine.Vector2;
 public class Player : MonoBehaviour
 {
     public GameObject particlePrefab;
-    public GameObject player;
     public CameraShake camshake;
 
     private Rigidbody2D rb;
-    private int randMove;
     private int xSpeed = 25;
     private int ySpeed = -2;
     private UIManager uiManager;
     private Material player_renderer_material;
+    private static Player _instance;
+    public static Player Instance
+    {
+        get { return _instance; }
+    }
 
     private void Awake()
     {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+
         uiManager = (UIManager)FindObjectOfType(typeof(UIManager));
         rb = GetComponent<Rigidbody2D>();
-        player_renderer_material = player.GetComponent<Renderer>().material;
-    }
+        player_renderer_material = GetComponent<Renderer>().material;
+        }
     private void FixedUpdate()
     {
         MovePlayer(); 
@@ -43,27 +55,17 @@ public class Player : MonoBehaviour
     }
     public void MovePlayer() 
     {
-        if(randMove <= 5) 
-        {
             rb.AddForce(new Vector2(xSpeed, ySpeed));
-        }
-        else
-        {
-            rb.AddForce(new Vector2(-xSpeed, ySpeed));
-        }
+
     }
     void GetInput() 
     {
         if ((Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space)) && Time.timeScale > 0) 
         {
-            if(randMove <= 5) 
-            {
                 rb.AddForce(new Vector2(-xSpeed * 3, 0));
-            }
-            else 
-            {
-                rb.AddForce(new Vector2(xSpeed * 3, 0));
-            }
+            
+                //rb.AddForce(new Vector2(xSpeed * 3, 0));
+            
         }
     }
     void OnCollisionEnter2D(Collision2D other)
@@ -75,7 +77,7 @@ public class Player : MonoBehaviour
     }
     public void endGame() 
     {
-        player.SetActive(false);
+        this.gameObject.SetActive(false);
         uiManager.GameOver();
         camshake.InduceStress(2f, 1f, 2f); // Camera Shake //
         ChangeColor(GetPlayerColor(), particlePrefab.GetComponent<Renderer>()); // Change color of the particle //
