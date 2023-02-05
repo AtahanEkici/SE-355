@@ -7,7 +7,7 @@
     },
     {
       "FullName": "Unity.2D.Psdimporter.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2023-02-05T13:02:11.2396768Z"
+      "LastWriteTime": "2023-02-05T14:54:51.436223Z"
     },
     {
       "FullName": "mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
@@ -15,39 +15,39 @@
     },
     {
       "FullName": "Unity.Mathematics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2023-02-05T13:02:07.7542692Z"
+      "LastWriteTime": "2023-02-05T14:46:32.5243638Z"
     },
     {
-      "FullName": "mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
-      "LastWriteTime": "2022-11-23T03:23:44Z"
+      "FullName": "PsdPlugin, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "LastWriteTime": "2023-02-05T14:54:50.3615342Z"
+    },
+    {
+      "FullName": "Unity.2D.Common.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "LastWriteTime": "2023-02-05T14:54:50.3575309Z"
+    },
+    {
+      "FullName": "Unity.Burst, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "LastWriteTime": "2023-02-05T14:46:32.5293891Z"
     },
     {
       "FullName": "netstandard, Version=2.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51",
       "LastWriteTime": "2022-11-23T03:23:44Z"
     },
     {
-      "FullName": "PsdPlugin, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2023-02-05T13:02:08.4140646Z"
-    },
-    {
-      "FullName": "Unity.2D.Common.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2023-02-05T13:02:09.6664322Z"
-    },
-    {
       "FullName": "UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
       "LastWriteTime": "2022-11-23T03:45:40Z"
     },
     {
-      "FullName": "Unity.Burst, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2023-02-05T13:02:08.3722435Z"
-    },
-    {
       "FullName": "Unity.2D.Animation.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2023-02-05T13:02:09.8293181Z"
+      "LastWriteTime": "2023-02-05T14:46:32.5293891Z"
     },
     {
       "FullName": "Unity.2D.SpriteShape.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2023-02-05T13:02:09.6910479Z"
+      "LastWriteTime": "2023-02-05T14:46:32.5369123Z"
+    },
+    {
+      "FullName": "mscorlib, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "LastWriteTime": "2022-11-23T03:23:44Z"
     },
     {
       "FullName": "UnityEngine.SpriteShapeModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
@@ -55,54 +55,46 @@
     },
     {
       "FullName": "Unity.2D.Common.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2023-02-05T13:02:08.3994582Z"
+      "LastWriteTime": "2023-02-05T14:46:32.5183484Z"
     },
     {
       "FullName": "Unity.2D.Animation.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2023-02-05T13:02:11.2551631Z"
-    },
-    {
-      "FullName": "mscorlib, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-      "LastWriteTime": "2022-11-23T03:23:44Z"
+      "LastWriteTime": "2023-02-05T14:54:51.2878853Z"
     }
   ],
   "Functions": [
     {
       "FullName": "Unity.Jobs.IJobParallelForExtensions+ParallelForJobStruct`1[[UnityEditor.U2D.PSD.ExtractLayerTask+ConvertBufferJob, Unity.2D.Psdimporter.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(UnityEditor.U2D.PSD.ExtractLayerTask+ConvertBufferJob&, Unity.2D.Psdimporter.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)",
       "ModuleOptionsHash": 15221144590354301703,
-      "ModuleHash": "b79a2bf399153da3b9b066453b3be164",
+      "ModuleHash": "efeb35674872688783e64ec2aff5cee8",
       "LinkName": "85C34B2AEC2FC609",
       "AssemblyDependencyIndices": [
         0,
         1,
         2,
-        3,
-        4,
-        5
+        3
       ]
     },
     {
       "FullName": "Unity.Jobs.IJobExtensions+JobStruct`1[[PaintDotNet.Data.PhotoshopFileType.PDNAlphaMaskJob, PsdPlugin, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(PaintDotNet.Data.PhotoshopFileType.PDNAlphaMaskJob&, PsdPlugin, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)",
       "ModuleOptionsHash": 15221144590354301703,
-      "ModuleHash": "d7f4f21a447d1c2f6edb302a0953252a",
+      "ModuleHash": "4886ae2dd6a87c8ffc6c9077d87f1bdf",
       "LinkName": "B33AFCD7D8FB6AEB",
       "AssemblyDependencyIndices": [
         0,
-        6,
-        2,
-        4
+        4,
+        2
       ]
     },
     {
       "FullName": "Unity.Jobs.IJobParallelForExtensions+ParallelForJobStruct`1[[PaintDotNet.Data.PhotoshopFileType.PDNDecoderJob, PsdPlugin, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(PaintDotNet.Data.PhotoshopFileType.PDNDecoderJob&, PsdPlugin, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)",
       "ModuleOptionsHash": 15221144590354301703,
-      "ModuleHash": "ddc036e2412c23450e87bf75c2762863",
+      "ModuleHash": "f01f4dedf742cd49d0874b856dce3f64",
       "LinkName": "4B57F329150937D0",
       "AssemblyDependencyIndices": [
         0,
-        6,
-        2,
-        4
+        4,
+        2
       ]
     },
     {
@@ -111,14 +103,13 @@
       "ModuleHash": "e59e526f4ee070380d4b23c7e9f90dff",
       "LinkName": "8115CAFF6B65630B",
       "AssemblyDependencyIndices": [
-        7,
-        3,
-        8,
+        5,
         2,
         0,
-        9,
-        5,
-        4
+        3,
+        6,
+        7,
+        8
       ]
     },
     {
@@ -127,26 +118,24 @@
       "ModuleHash": "2dcee164e762d017bec54ab2f4c81edc",
       "LinkName": "22C1BA9B75E8DDE1",
       "AssemblyDependencyIndices": [
-        10,
-        5,
         9,
+        7,
         2,
         0,
-        8,
-        4
+        6,
+        8
       ]
     },
     {
       "FullName": "Unity.Jobs.IJobParallelForExtensions+ParallelForJobStruct`1[[UnityEditor.U2D.PSD.FlattenImageTask+FlattenImageInternalJob, Unity.2D.Psdimporter.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(UnityEditor.U2D.PSD.FlattenImageTask+FlattenImageInternalJob&, Unity.2D.Psdimporter.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)",
       "ModuleOptionsHash": 15221144590354301703,
-      "ModuleHash": "6319f52c7d327ddd17df6aaff9bc539f",
+      "ModuleHash": "8f2de0973000f447b65305450f5242ed",
       "LinkName": "18C2EC3E41FEE880",
       "AssemblyDependencyIndices": [
         0,
         1,
         2,
-        3,
-        4
+        3
       ]
     },
     {
@@ -156,13 +145,13 @@
       "LinkName": "104599FDEEB36FAE",
       "AssemblyDependencyIndices": [
         0,
+        10,
         11,
         12,
         2,
-        5,
+        7,
         3,
-        13,
-        4
+        13
       ]
     },
     {
@@ -176,8 +165,7 @@
         2,
         13,
         3,
-        5,
-        4
+        7
       ]
     },
     {
@@ -188,12 +176,10 @@
       "AssemblyDependencyIndices": [
         0,
         14,
-        15,
-        13,
         2,
+        13,
         3,
-        5,
-        4
+        7
       ]
     },
     {
@@ -203,9 +189,8 @@
       "LinkName": "FBD0B2A6246F6223",
       "AssemblyDependencyIndices": [
         0,
-        7,
-        2,
-        4
+        5,
+        2
       ]
     },
     {
@@ -218,11 +203,10 @@
         14,
         2,
         3,
-        5,
-        9,
+        7,
+        6,
         13,
-        8,
-        4
+        8
       ]
     },
     {
@@ -231,8 +215,8 @@
       "ModuleHash": "0078a06cfd674e0fc42f1494c134f7ce",
       "LinkName": "801E9A000BB37B05",
       "AssemblyDependencyIndices": [
-        9,
-        5,
+        6,
+        7,
         2
       ]
     },
@@ -242,8 +226,8 @@
       "ModuleHash": "dc6454d1bb8cce3d6cb8fb9e6a7e8eb0",
       "LinkName": "CDCA4A5193BE5947",
       "AssemblyDependencyIndices": [
-        9,
-        5,
+        6,
+        7,
         2
       ]
     },
@@ -256,8 +240,8 @@
         14,
         2,
         3,
-        9,
-        5,
+        6,
+        7,
         0,
         8
       ]
@@ -272,11 +256,10 @@
         2,
         0,
         3,
-        5,
-        9,
+        7,
+        6,
         13,
-        8,
-        4
+        8
       ]
     },
     {
@@ -289,11 +272,10 @@
         2,
         0,
         3,
-        9,
-        5,
+        6,
+        7,
         13,
-        8,
-        4
+        8
       ]
     },
     {
@@ -305,11 +287,10 @@
         14,
         2,
         3,
-        5,
-        9,
+        7,
+        6,
         0,
-        8,
-        4
+        8
       ]
     },
     {
@@ -321,8 +302,8 @@
         14,
         2,
         3,
-        5,
-        9,
+        7,
+        6,
         13,
         0,
         8
@@ -336,8 +317,8 @@
       "AssemblyDependencyIndices": [
         14,
         2,
-        9,
-        5,
+        6,
+        7,
         3,
         13,
         0,
@@ -354,11 +335,10 @@
         2,
         3,
         0,
-        5,
-        9,
+        7,
+        6,
         13,
-        8,
-        4
+        8
       ]
     }
   ]
